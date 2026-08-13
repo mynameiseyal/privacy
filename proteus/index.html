@@ -59,14 +59,20 @@ Because we hold nothing, there is no server-side copy to request or erase.</p>
 <h2>Advertising</h2>
 <p>Proteus displays a banner ad and, at most once per day on launch, a full-screen
 app-open ad. These are served by <strong>Google AdMob</strong>.</p>
-<p>To serve and measure ads, Google and its ad partners collect and process:</p>
+<p>To serve and measure ads, and to detect fraud, Google and its ad partners collect
+and process the following — this list follows Google's own disclosure for the Mobile
+Ads SDK:</p>
 <ul>
-  <li>Your device's <strong>advertising identifier</strong> (Android Advertising ID) — a
-  resettable ID used to limit repeat ads and measure performance;</li>
-  <li><strong>Device and technical data</strong> — device model, operating-system
-  version, language/region, coarse location inferred from your IP address, and
-  ad-interaction events such as impressions and clicks.</li>
+  <li><strong>Identifiers</strong> — your device's Android <strong>advertising ID</strong>
+  (resettable, and deletable, by you) and its <strong>app set ID</strong>;</li>
+  <li><strong>IP address</strong> — which can be used to estimate your device's
+  general location;</li>
+  <li><strong>Product interactions</strong> — app launches, taps, and video views;</li>
+  <li><strong>Diagnostic information</strong> — app and SDK performance, such as launch
+  time, hang rate, and energy usage.</li>
 </ul>
+<p>Google states these are used for <strong>advertising, analytics, and fraud
+prevention</strong>, and that the data is encrypted in transit using TLS.</p>
 <p>This information goes to Google, not to us. We see only aggregate, anonymous
 reporting (for example, "how many impressions yesterday") — never anything that
 identifies you or your device. Your food logs, goals, and presets are
