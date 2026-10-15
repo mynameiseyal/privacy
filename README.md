@@ -13,6 +13,8 @@ and survive a later move to a custom domain:
 /                  → landing page listing the apps
 /proteus/          → Proteus (com.evworks.proteus)
 /qbitremote/       → QBitRemote (com.evworks.qbitremote)
+/vacation-planner/ → Vacation Planner (com.evworks.vacationplanner)
+/vacation-planner/delete-account/ → its Play "delete account" web page
 ```
 
 ## Adding an app
