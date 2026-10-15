@@ -12,6 +12,7 @@ and survive a later move to a custom domain:
 ```
 /                  → landing page listing the apps
 /proteus/          → Proteus (com.evworks.proteus)
+/qbitremote/       → QBitRemote (com.evworks.qbitremote)
 ```
 
 ## Adding an app
@@ -20,8 +21,8 @@ Create `<app>/index.html` and add a row to the list in `/index.html`.
 
 ## Canonical source
 
-**Do not edit `proteus/index.html` here as the source of truth.** It is a copy
-of `docs/privacy.html` in the (private) Proteus repo, which is where the policy
+**Do not edit `proteus/index.html` or `qbitremote/index.html` here as the source of truth.** Each is a copy
+of `docs/privacy.html` in that app's (private) repo, which is where the policy
 is reviewed alongside the code that determines what it must disclose. Change it
 there, then copy it here. Keeping the source next to the code is what stops the
 policy drifting away from the app's actual data flows.

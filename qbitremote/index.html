@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QBitRemote — Privacy Policy</title>
+<style>
+  body { max-width: 720px; margin: 40px auto; padding: 0 20px;
+    font: 16px/1.6 -apple-system, Segoe UI, Roboto, sans-serif; color: #1a1a1a; }
+  h1 { font-size: 26px; } h2 { font-size: 19px; margin-top: 28px; }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 4px; }
+  .muted { color: #666; }
+  a { color: #0b7285; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 7px 9px; text-align: left; vertical-align: top; }
+  th { background: #f7f7f7; font-size: 14px; } td { font-size: 15px; }
+</style>
+</head>
+<body>
+<h1>QBitRemote — Privacy Policy</h1>
+<p class="muted">Effective date: 15 October 2026</p>
+
+<p>QBitRemote lets you control qBittorrent on your own computer from your Android
+phone. It has two parts: the <b>app</b> on your phone and the <b>agent</b>, a small
+program you install on your computer. This policy explains what each part stores,
+what travels between them, and what we can and can't see.</p>
+
+<h2>Short version</h2>
+<ul>
+  <li><b>No accounts.</b> QBitRemote never asks who you are.</li>
+  <li><b>Your torrents stay between your phone and your computer.</b> We don't
+    receive your torrent list, file names or anything you add.</li>
+  <li><b>Everything between phone and computer is end-to-end encrypted.</b>
+    Away from home it passes through our relay, which only forwards encrypted
+    bytes it can't read.</li>
+  <li><b>No analytics, no tracking, no ads</b> in this version.</li>
+  <li><b>The camera is used only to scan the pairing QR code</b>, on your
+    phone. Images are never stored or sent anywhere.</li>
+</ul>
+
+<h2>Data stored on your phone</h2>
+<p>In the app's private storage:</p>
+<ul>
+  <li>the phone's own encryption key, itself encrypted with a key held in the
+    Android Keystore;</li>
+  <li>the computer you paired with: its public key, ID, name and network
+    addresses, and the relay address.</li>
+</ul>
+<p>This data is excluded from Android backups and device-to-device transfers. To
+delete it, choose <b>Forget this computer</b> in the app, clear the app's data,
+or uninstall it.</p>
+
+<h2>Data stored on your computer</h2>
+<p>The agent keeps, on your computer only: its own keys, the list of phones you
+paired (each phone's public key and the name you see in the app, such as
+"Samsung SM-S931B", with when it paired and was last seen), and the password it
+uses for qBittorrent's WebUI. Remove a phone with
+<code>sudo qbitremote-agent devices revoke "&lt;name&gt;"</code>; remove everything
+with <code>sudo apt purge qbitremote-agent</code>.</p>
+
+<h2>What travels over the network</h2>
+<table>
+  <tr><th>Connection</th><th>What goes over it</th><th>Who can read it</th></tr>
+  <tr><td>Phone ↔ computer on your home network</td>
+    <td>Your torrent list and your commands (pause, add, delete…)</td>
+    <td>Only your phone and your computer. It's encrypted end to end
+      (Noise protocol) with keys exchanged by the QR code.</td></tr>
+  <tr><td>Computer → your home network</td>
+    <td>An mDNS announcement with the agent's random ID and the computer's name, so the app can find it</td>
+    <td>Devices on your home network, like any network printer or speaker</td></tr>
+  <tr><td>Phone ↔ relay ↔ computer, away from home</td>
+    <td>The same encrypted messages</td>
+    <td>Only your phone and your computer. The relay sees the computer's random
+      ID, the connecting IP addresses, and the size and timing of encrypted
+      messages, but not their content. It stores none of this.</td></tr>
+  <tr><td>Your computer ↔ our download site</td>
+    <td>The installer and updates (through <code>apt</code>)</td>
+    <td>Public files; like any website, the hosting provider receives the
+      request's IP address.</td></tr>
+</table>
+<p>The relay and the download site run on Cloudflare. Cloudflare processes
+connection data (such as IP addresses) to operate its network; see
+<a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.
+We keep no logs of relay traffic.</p>
+
+<h2>Permissions</h2>
+<ul>
+  <li><b>Camera</b>: scanning the pairing QR code. Optional: you can paste the
+    pairing link instead.</li>
+  <li><b>Internet and network state</b>: reaching your computer at home or
+    through the relay, and noticing when you switch between Wi-Fi and mobile
+    data.</li>
+</ul>
+
+<h2>Children</h2>
+<p>QBitRemote is not directed at children under 13 and doesn't knowingly collect
+data from anyone.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, for example when a future version adds ads, the new
+version will be posted here with a new effective date before that version is
+released.</p>
+
+<h2>Contact</h2>
+<p>EVWORKS · <a href="mailto:evworks.dev@gmail.com">evworks.dev@gmail.com</a></p>
+</body>
+</html>
