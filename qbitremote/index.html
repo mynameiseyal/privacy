@@ -18,7 +18,7 @@
 </head>
 <body>
 <h1>QBitRemote — Privacy Policy</h1>
-<p class="muted">Effective date: 15 October 2026</p>
+<p class="muted">Effective date: 16 October 2026</p>
 
 <p>QBitRemote lets you control qBittorrent on your own computer from your Android
 phone. It has two parts: the <b>app</b> on your phone and the <b>agent</b>, a small
@@ -36,6 +36,8 @@ what travels between them, and what we can and can't see.</p>
   <li><b>No analytics, no tracking, no ads</b> in this version.</li>
   <li><b>The camera is used only to scan the pairing QR code</b>, on your
     phone. Images are never stored or sent anywhere.</li>
+  <li><b>Sites you add open in an in-app browser.</b> Your logins stay on your
+    phone; QBitRemote never stores your site passwords and we never see them.</li>
 </ul>
 
 <h2>Data stored on your phone</h2>
@@ -44,8 +46,20 @@ what travels between them, and what we can and can't see.</p>
   <li>the phone's own encryption key, itself encrypted with a key held in the
     Android Keystore;</li>
   <li>the computer you paired with: its public key, ID, name and network
-    addresses, and the relay address.</li>
+    addresses, and the relay address;</li>
+  <li>the sites you added under <b>Your sites</b>: the name and address you
+    gave each one;</li>
+  <li>cookies those sites set when you log in, kept by the in-app browser
+    (Android WebView) so you stay logged in. The app never stores your site
+    usernames or passwords; Android Autofill or your password manager can fill
+    them in, as in any browser.</li>
 </ul>
+<p>When you tap a <code>.torrent</code> link in a site, the app downloads the
+file from that site with its cookies and sends it, end-to-end encrypted, to your
+computer. Magnet links, and links or files you share to QBitRemote from other
+apps, are sent the same way. Pages you visit go directly between your phone and the site, as in any
+browser; they don't pass through us. Google Safe Browsing checks the addresses
+you visit for known dangerous sites.</p>
 <p>This data is excluded from Android backups and device-to-device transfers. To
 delete it, choose <b>Forget this computer</b> in the app, clear the app's data,
 or uninstall it.</p>
