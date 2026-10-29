@@ -18,12 +18,14 @@
 </head>
 <body>
 <h1>QBitRemote — Privacy Policy</h1>
-<p class="muted">Effective date: 16 October 2026</p>
+<p class="muted">Effective date: 29 October 2026</p>
 
 <p>QBitRemote lets you control qBittorrent on your own computer from your Android
 phone. It has two parts: the <b>app</b> on your phone and the <b>agent</b>, a small
 program you install on your computer. This policy explains what each part stores,
-what travels between them, and what we can and can't see.</p>
+what travels between them, and what we can and can't see. The app also shows
+<b>ads</b>, and ads involve Google collecting some information about your phone;
+that's covered below too.</p>
 
 <h2>Short version</h2>
 <ul>
@@ -33,7 +35,10 @@ what travels between them, and what we can and can't see.</p>
   <li><b>Everything between phone and computer is end-to-end encrypted.</b>
     Away from home it passes through our relay, which only forwards encrypted
     bytes it can't read.</li>
-  <li><b>No analytics, no tracking, no ads</b> in this version.</li>
+  <li><b>The app shows ads through Google AdMob.</b> Google receives your phone's
+    advertising ID and technical data to serve them. We run no analytics of our
+    own.</li>
+  <li><b>You can remove the ads</b> with a one-time in-app purchase.</li>
   <li><b>The camera is used only to scan the pairing QR code</b>, on your
     phone. Images are never stored or sent anywhere.</li>
   <li><b>Sites you add open in an in-app browser.</b> Your logins stay on your
@@ -66,7 +71,8 @@ or uninstall it.</p>
 
 <h2>Data stored on your computer</h2>
 <p>The agent keeps, on your computer only: its own keys, the list of phones you
-paired (each phone's public key and the name you see in the app, such as
+paired (each phone's public key, a scrambled identifier that lets it recognise the
+same phone after a reinstall, and the name you see in the app, such as
 "Samsung SM-S931B", with when it paired and was last seen), and the password it
 uses for qBittorrent's WebUI. Remove a phone with
 <code>sudo qbitremote-agent devices revoke "&lt;name&gt;"</code>; remove everything
@@ -87,6 +93,11 @@ with <code>sudo apt purge qbitremote-agent</code>.</p>
     <td>Only your phone and your computer. The relay sees the computer's random
       ID, the connecting IP addresses, and the size and timing of encrypted
       messages, but not their content. It stores none of this.</td></tr>
+  <tr><td>Phone ↔ Google (AdMob, Play)</td>
+    <td>Ad requests with the data listed under <b>Advertising</b>; the "Remove
+      ads" purchase and its status</td>
+    <td>Google, under its own privacy policy. Nothing about your torrents,
+      computer or sites is included.</td></tr>
   <tr><td>Your computer ↔ our download site</td>
     <td>The installer and updates (through <code>apt</code>)</td>
     <td>Public files; like any website, the hosting provider receives the
@@ -97,6 +108,59 @@ connection data (such as IP addresses) to operate its network; see
 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.
 We keep no logs of relay traffic.</p>
 
+<h2>Advertising</h2>
+<p>The app shows a banner ad at the bottom of the torrent list and, at most once
+a day when you open it, a full-screen app-open ad. These are served by
+<b>Google AdMob</b>.</p>
+<p>To serve and measure ads, and to detect fraud, Google and its ad partners
+collect and process the following. This list follows Google's own disclosure for
+the Mobile Ads SDK:</p>
+<ul>
+  <li><b>Identifiers</b>: your phone's Android <b>advertising ID</b> (which you
+    can reset or delete) and its <b>app set ID</b>;</li>
+  <li><b>IP address</b>, which can be used to estimate your phone's general
+    location;</li>
+  <li><b>Product interactions</b>: app launches, taps and video views;</li>
+  <li><b>Diagnostic information</b>: app and SDK performance, such as launch time,
+    hang rate and energy usage.</li>
+</ul>
+<p>Google states these are used for <b>advertising, analytics and fraud
+prevention</b>, and that the data is encrypted in transit.</p>
+<p>This information goes to Google, not to us. We see only aggregate, anonymous
+reports (for example, "how many ads were shown yesterday"), never anything that
+identifies you or your phone. Your torrents, your computer, the sites you added
+and their cookies are <b>never</b> shared with Google or any ad partner; the ads
+SDK has no access to them, and it isn't shown inside the in-app browser.</p>
+<p>See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and
+<a href="https://policies.google.com/technologies/partner-sites">How Google uses
+information from sites or apps that use its services</a>.</p>
+
+<h2>Your choices about ads</h2>
+<table>
+  <tr><th>Choice</th><th>What it does</th></tr>
+  <tr><td><b>Consent (EEA, UK, Switzerland)</b></td>
+    <td>Where the law requires it, the app shows a Google consent form when you
+      open it, and no ad loads until you answer. You can choose
+      <b>non-personalized ads</b>, based on context rather than a profile of your
+      interests. Change your answer any time in <b>Settings → Privacy
+      options</b>.</td></tr>
+  <tr><td><b>Opt out of sale or sharing (US states)</b></td>
+    <td>If you live in a US state with a privacy law covering this, such as
+      California, Colorado, Connecticut, Texas or Virginia, you can tell us not to
+      "sell" or "share" your personal information for targeted advertising, in
+      <b>Settings → Privacy options</b>. Ads continue, but are no longer targeted
+      using your information.</td></tr>
+  <tr><td><b>Reset or delete your advertising ID</b></td>
+    <td>Android lets you reset the advertising ID, or delete it so apps receive
+      none: <b>Settings → Privacy → Ads</b> on your phone (the path varies by
+      device).</td></tr>
+  <tr><td><b>Remove ads</b></td>
+    <td>A one-time in-app purchase removes all ads. <b>Google Play</b> handles
+      the payment; we never receive your name, card or billing details. The app
+      only learns from Play that you own the purchase, and asks Play again on each
+      launch so it carries over to a reinstall or a new phone.</td></tr>
+</table>
+
 <h2>Permissions</h2>
 <ul>
   <li><b>Camera</b>: scanning the pairing QR code. Optional: you can paste the
@@ -104,16 +168,19 @@ We keep no logs of relay traffic.</p>
   <li><b>Internet and network state</b>: reaching your computer at home or
     through the relay, and noticing when you switch between Wi-Fi and mobile
     data.</li>
+  <li><b>Advertising ID</b> (added by the Google Mobile Ads SDK): serving and
+    measuring ads, as described above.</li>
+  <li><b>Google Play Billing</b>: the optional "Remove ads" purchase.</li>
 </ul>
 
 <h2>Children</h2>
-<p>QBitRemote is not directed at children under 13 and doesn't knowingly collect
-data from anyone.</p>
+<p>QBitRemote is not directed at children under 13, and we don't knowingly
+collect data from them. Its ad settings don't treat users as children.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes, for example when a future version adds ads, the new
-version will be posted here with a new effective date before that version is
-released.</p>
+<p>If this policy changes, the new version will be posted here with a new
+effective date before that version is released. Changes to advertising or data
+sharing are also reflected in the app's Google Play Data safety section.</p>
 
 <h2>Contact</h2>
 <p>EVWORKS · <a href="mailto:evworks.dev@gmail.com">evworks.dev@gmail.com</a></p>
